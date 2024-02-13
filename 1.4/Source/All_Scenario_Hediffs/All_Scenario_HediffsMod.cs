@@ -3,17 +3,24 @@ using UnityEngine;
 
 namespace All_Scenario_Hediffs;
 
-public class All_Scenario_HediffsMod : Verse.Mod
+[StaticConstructorOnStartup]
+public static class ApplyOverrides
+{
+    static ApplyOverrides()
+    {
+        All_Scenario_HediffsMod.settings.ApplyOverrides();
+    }
+}
+
+public class All_Scenario_HediffsMod : Mod
 {
     public static Settings settings;
 
     public All_Scenario_HediffsMod(ModContentPack content) : base(content)
     {
-
         // initialize settings
         settings = GetSettings<Settings>();
-
-
+        settings.ApplyOverrides();
     }
 
     public override void DoSettingsWindowContents(Rect inRect)
@@ -24,6 +31,6 @@ public class All_Scenario_HediffsMod : Verse.Mod
 
     public override string SettingsCategory()
     {
-        return "All Scenario Hediffs";
+        return "Feldoh_AllScenarioHediffs_SettingsName".Translate();
     }
 }
