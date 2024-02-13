@@ -21,17 +21,17 @@ public class Settings : ModSettings
     {
         Listing_Standard options = new();
         options.Begin(wrect);
-
+        options.ColumnWidth = wrect.width * 0.5f;
         if (options.ButtonText("Feldoh_AllScenarioHediffs_ClearAll".Translate()))
         {
             HediffOverrides.Clear();
         }
-
+        options.NewColumn();
         if (options.ButtonText("Feldoh_AllScenarioHediffs_Apply".Translate()))
         {
             ApplyOverrides();
         }
-
+        options.ColumnWidth = wrect.width; // Reset column width for subsequent elements
         options.Gap();
 
         // Add a TextField for the search query
