@@ -54,10 +54,14 @@ public class Settings : ModSettings
         float num = 0f;
         foreach (HediffDef hediffDef in filteredHediffDefs)
         {
-            Rect rowRect = new Rect(0, num * RowHeight, viewRect.width - 10, RowHeight - 5f);
+            Rect rowRect = new(0, num * RowHeight, viewRect.width - 10, RowHeight - 5f);
             bool state = HediffOverrides.GetWithFallback(hediffDef.defName, hediffDef.scenarioCanAdd);
             bool beforeState = state;
-            Widgets.CheckboxLabeled(rowRect, hediffDef.LabelCap, ref state, placeCheckboxNearText: true);
+            Widgets.CheckboxLabeled(rowRect, $"{hediffDef.LabelCap} ({hediffDef.defName})", ref state, placeCheckboxNearText: true);
+            if (Mouse.IsOver(rowRect))
+            {
+                TooltipHandler.TipRegion(rowRect, hediffDef.Description);
+            }
             if (beforeState != state)
             {
                 HediffOverrides.SetOrAdd(hediffDef.defName, state);
