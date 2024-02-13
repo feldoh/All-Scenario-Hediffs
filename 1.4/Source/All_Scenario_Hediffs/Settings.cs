@@ -21,7 +21,7 @@ public class Settings : ModSettings
     {
         Listing_Standard options = new();
         options.Begin(wrect);
-        options.ColumnWidth = wrect.width * 0.5f;
+        options.ColumnWidth = wrect.width * 0.49f;
         if (options.ButtonText("Feldoh_AllScenarioHediffs_ClearAll".Translate()))
         {
             HediffOverrides.Clear();
