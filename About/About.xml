@@ -10,4 +10,12 @@
     <packageId>Feldoh.AllScenarioHediffs</packageId>
     <description>A small mod to let you add literally any hediff in the game to the scenario menu.</description>
     <url>https://steamcommunity.com/id/Feldoh/myworkshopfiles/?appid=294100</url>
+    <loadAfter>
+        <li>Ludeon.RimWorld</li>
+        <li>Ludeon.RimWorld.Ideology</li>
+        <li>Ludeon.RimWorld.Royalty</li>
+        <li>Ludeon.RimWorld.Biotech</li>
+        <li>Ludeon.RimWorld.Anomaly</li>
+        <li>Ludeon.RimWorld.Odyssey</li>
+    </loadAfter>
 </ModMetaData>
